@@ -37,6 +37,16 @@ lista_arquivos.uri_s3 <- function(uri) {
     file.path(splitted[1], arqs)
 }
 
+#' Identifica Extensao De Arquivo
+#' 
+#' @param arquivos lista de nomes de arquivos
+#' 
+#' @return vetor com comprimento de `arquivos` contendo a extensao de cada um
+
+id_tipo_arquivo <- function(arquivos) {
+    sub(".*\\.", ".", arquivos)
+}
+
 # HELPERS ------------------------------------------------------------------------------------------
 
 #' Helper Para Parse De Uri s3
