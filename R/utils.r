@@ -6,7 +6,8 @@ valid_tabelas <- function(tabelas) {
         "geracao_observada",
         "corte_observado",
         "irradiancia_prevista",
-        "melhor_historico_geracao"
+        "melhor_historico_geracao",
+        "melhor_historico_geracao_sem_cortes"
     )
 
     is_valid <- tabelas %in% ref

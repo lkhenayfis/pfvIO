@@ -1,3 +1,19 @@
+#' Adiciona Elementos `uri` e `fileType` A Um Schema
+#' 
+#' Auxiliar para compatibilizar o schema fixo com partes dinamicas, dependendo da fonte de dados
+#' 
+#' @param schema um schema unitario lido por `get_single_schema()`
+#' @param uri string indicando a uri a substituir
+#' @param fileType string indicando a extensao (com `"."` inicial) a substituir
+#' 
+#' @return `schema` com elementos `uri` e `fileType` substituidos
+
+fix_uri_filetype <- function(schema, uri, fileType) {
+    schema$uri <- uri
+    schema$fileType <- fileType
+    return(schema)
+}
+
 #' Getter De Schemas De Tabelas
 #' 
 #' Wrapper para buscar schemas de multiplas tabelas suportadas pelo pacote
@@ -79,7 +95,7 @@ get_schema_potencia_disponivel_observada <- function() {
 
 get_schema_geracao_observada <- function() {
     list(
-        name = "potencia_disponivel_observada",
+        name = "geracao_observada",
         description = "",
         uri = "",
         fileType = "",
@@ -97,7 +113,7 @@ get_schema_geracao_observada <- function() {
 
 get_schema_corte_observado <- function() {
     list(
-        name = "potencia_disponivel_observada",
+        name = "corte_observado",
         description = "",
         uri = "",
         fileType = "",
@@ -115,7 +131,7 @@ get_schema_corte_observado <- function() {
 
 get_schema_irradiancia_prevista <- function() {
     list(
-        name = "potencia_disponivel_observada",
+        name = "irradiancia_prevista",
         description = "",
         uri = "",
         fileType = "",
@@ -134,7 +150,25 @@ get_schema_irradiancia_prevista <- function() {
 
 get_schema_melhor_historico_geracao <- function() {
     list(
-        name = "potencia_disponivel_observada",
+        name = "melhor_historico_geracao",
+        description = "",
+        uri = "",
+        fileType = "",
+        columns = list(
+            list(name = "id_fonte_observacao", type = "character"),
+            list(name = "id_usina", type = "character"),
+            list(name = "data_hora_observacao", type = "POSIXct"),
+            list(name = "valor", type = "numeric"),
+            list(name = "status", type = "integer")
+        )
+    )
+}
+
+#' @rdname getters_schemas_individuais
+
+get_schema_melhor_historico_geracao_sem_cortes <- function() {
+    list(
+        name = "melhor_historico_geracao_sem_cortes",
         description = "",
         uri = "",
         fileType = "",
