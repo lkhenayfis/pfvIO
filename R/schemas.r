@@ -1,3 +1,23 @@
+#' Converte Tipo De Coluna Para Padrao `dbrenovaveis`
+#' 
+#' Auxiliar para converter chaves tipo de coluna para os nomes reconhecidos pelo `dbrenovaveis`
+
+coltype2dbrenovaveis <- function(schema) {
+    cols <- schema$columns
+    cols <- lapply(cols, function(col) {
+        col$type <- switch(col$type,
+            "character" = "string",
+            "numeric" = "float",
+            "integer" = "int",
+            "Date" = "date",
+            "POSIXct" = "datetime"
+        )
+        col
+    })
+    schema$columns <- cols
+    return(schema)
+}
+
 #' Adiciona Elementos `uri` e `fileType` A Um Schema
 #' 
 #' Auxiliar para compatibilizar o schema fixo com partes dinamicas, dependendo da fonte de dados
@@ -13,6 +33,8 @@ fix_uri_filetype <- function(schema, uri, fileType) {
     schema$fileType <- fileType
     return(schema)
 }
+
+# GETTERS DE SCHEMAS -------------------------------------------------------------------------------
 
 #' Getter De Schemas De Tabelas
 #' 
@@ -43,8 +65,6 @@ get_single_schema <- function(tabela) {
     cc  <- as.call(list(fun))
     eval(cc)
 }
-
-# SCHEMAS INDIVIDUAIS ------------------------------------------------------------------------------
 
 #' Wrappers De Schemas Individuais
 #' 
