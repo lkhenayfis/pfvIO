@@ -24,7 +24,7 @@ fix_uri_filetype <- function(schema, uri, fileType) {
 #' @return lista nomeada de schemas por tabela
 
 get_schemas <- function(tabelas) {
-    valid_tabelas(tabelas)
+    valida_nomes_tabelas(tabelas)
     out <- lapply(tabelas, get_single_schema)
     names(out) <- tabelas
     return(out)

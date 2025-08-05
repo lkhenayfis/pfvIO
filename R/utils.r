@@ -1,5 +1,5 @@
 
-valid_tabelas <- function(tabelas) {
+valida_nomes_tabelas <- function(tabelas) {
     ref <- c(
         "usinas",
         "potencia_disponivel_observada",
