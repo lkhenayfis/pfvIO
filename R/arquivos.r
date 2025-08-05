@@ -20,13 +20,13 @@ classifica_uri <- function(uri) {
 #' 
 #' @param uri string indicando um diretorio local ou bucket no s3
 #' 
-#' @return vetor de arquivos existentes em `uri`
+#' @return vetor de arquivos, sem caminho, existentes em `uri`
 
 lista_arquivos <- function(uri) UseMethod("lista_arquivos")
 
 #' @method lista_arquivos uri_local
 
-lista_arquivos.uri_local <- function(uri) list.files(uri, full.names = TRUE)
+lista_arquivos.uri_local <- function(uri) list.files(uri)
 
 #' @method lista_arquivos uri_s3
 
@@ -34,7 +34,7 @@ lista_arquivos.uri_s3 <- function(uri) {
     splitted <- split_bucket_prefix(uri)
     arqs <- aws.s3::get_bucket(splitted[1], splitted[2])
     arqs <- sapply(unname(arqs), "[[", "Key")
-    file.path(splitted[1], arqs)
+    sub(".*/", "", arqs)
 }
 
 #' Identifica Extensao De Arquivo
