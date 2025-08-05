@@ -14,4 +14,7 @@ Depends:
     stats (>= 4.3),
     utils (>= 4.3)
 Imports: 
-    data.table (>= 1.17.0)
+    data.table (>= 1.17.0),
+    dbrenovaveis (>= 0.8)
+Remotes:
+    lkhenayfis/dbrenovaveis
