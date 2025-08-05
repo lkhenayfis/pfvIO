@@ -1,0 +1,17 @@
+Package: pfvIO
+Title: Funcionalidades De Input/Output Para O Modelo De Previsão De Geracao Solar Fotovoltaica
+Version: 0.0.0.9000
+Authors@R: 
+    person("Lucas", "Khenayfis", , "lkhenayfis@ons.org.br", role = c("aut", "cre"))
+Description: Este e um pacote companion do modelo de previsao de geracao solar fotovoltaica. Contem
+    wrappers de validacao, leitura e escrita dos dados associados a execucao deste modelo.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Depends:
+    R (>= 4.3),
+    stats (>= 4.3),
+    utils (>= 4.3)
+Imports: 
+    data.table (>= 1.17.0)
