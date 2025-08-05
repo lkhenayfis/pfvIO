@@ -15,6 +15,7 @@ Depends:
     utils (>= 4.3)
 Imports: 
     data.table (>= 1.17.0),
-    dbrenovaveis (>= 0.8)
+    dbrenovaveis (>= 0.8),
+    aws.s3 (>= 0.3.20)
 Remotes:
     lkhenayfis/dbrenovaveis
