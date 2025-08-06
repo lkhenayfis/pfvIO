@@ -16,6 +16,7 @@ Depends:
 Imports: 
     data.table (>= 1.17.0),
     dbrenovaveis (>= 0.8),
-    aws.s3 (>= 0.3.20)
+    aws.s3 (>= 0.3.20),
+    lgr (>= 0.4.4)
 Remotes:
     lkhenayfis/dbrenovaveis
