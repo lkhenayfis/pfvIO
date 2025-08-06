@@ -85,9 +85,9 @@ get_schema_usinas <- function() {
         fileType = "",
         columns = list(
             list(name = "id_usina", type = "character"),
-            list(name = "latitude", type = "numeric"),
-            list(name = "longitude", type = "numeric"),
-            list(name = "capacidade_instalada_MW", type = "numeric"),
+            list(name = "latitude", type = "numeric", limits = c(-90, 90)),
+            list(name = "longitude", type = "numeric", limits = c(-180, 180)),
+            list(name = "capacidade_instalada_MW", type = "numeric", limits = c(0, Inf)),
             list(name = "data_inicio_operacao_comercial", type = "POSIXct")
         )
     )
@@ -105,7 +105,7 @@ get_schema_potencia_disponivel_observada <- function() {
             list(name = "id_fonte_observacao", type = "character"),
             list(name = "id_usina", type = "character"),
             list(name = "data_hora_observacao", type = "POSIXct"),
-            list(name = "valor", type = "numeric"),
+            list(name = "valor", type = "numeric", limits = c(0, Inf)),
             list(name = "status", type = "integer")
         )
     )
@@ -123,7 +123,7 @@ get_schema_geracao_observada <- function() {
             list(name = "id_fonte_observacao", type = "character"),
             list(name = "id_usina", type = "character"),
             list(name = "data_hora_observacao", type = "POSIXct"),
-            list(name = "valor", type = "numeric"),
+            list(name = "valor", type = "numeric", limits = c(0, Inf)),
             list(name = "status", type = "integer")
         )
     )
@@ -141,7 +141,7 @@ get_schema_corte_observado <- function() {
             list(name = "id_fonte_observacao", type = "character"),
             list(name = "id_usina", type = "character"),
             list(name = "data_hora_observacao", type = "POSIXct"),
-            list(name = "valor", type = "numeric"),
+            list(name = "valor", type = "numeric", limits = c(0, 1)),
             list(name = "status", type = "integer")
         )
     )
@@ -157,11 +157,11 @@ get_schema_irradiancia_prevista <- function() {
         fileType = "",
         columns = list(
             list(name = "id_modelo_nwp", type = "character"),
-            list(name = "latitude", type = "numeric"),
-            list(name = "longitude", type = "numeric"),
+            list(name = "latitude", type = "numeric", limits = c(-90, 90)),
+            list(name = "longitude", type = "numeric", limits = c(-180, 180)),
             list(name = "data_hora_rodada", type = "POSIXct"),
             list(name = "data_hora_previsao", type = "POSIXct"),
-            list(name = "valor", type = "numeric")
+            list(name = "valor", type = "numeric", limits = c(0, Inf))
         )
     )
 }
@@ -178,7 +178,7 @@ get_schema_melhor_historico_geracao <- function() {
             list(name = "id_fonte_observacao", type = "character"),
             list(name = "id_usina", type = "character"),
             list(name = "data_hora_observacao", type = "POSIXct"),
-            list(name = "valor", type = "numeric"),
+            list(name = "valor", type = "numeric", limits = c(0, Inf)),
             list(name = "status", type = "integer")
         )
     )
@@ -196,7 +196,7 @@ get_schema_melhor_historico_geracao_sem_cortes <- function() {
             list(name = "id_fonte_observacao", type = "character"),
             list(name = "id_usina", type = "character"),
             list(name = "data_hora_observacao", type = "POSIXct"),
-            list(name = "valor", type = "numeric"),
+            list(name = "valor", type = "numeric", limits = c(0, Inf)),
             list(name = "status", type = "integer")
         )
     )
