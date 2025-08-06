@@ -2,8 +2,57 @@
 
 # AUXILIARES ---------------------------------------------------------------------------------------
 
+#' Validador De Nomes De Colunas
+#' 
+#' Checa se colunas em `nomes` constam no dado `dt`
+#' 
+#' @param dt `data.table` no qual checar nomes
+#' @param nomes vetor de nomes de colunas para procurar em `dt`
+#' 
+#' @return `NULL` se todos as checagens forem aprovadas; levanta erro do contrario
+
 valida_nomes_colunas <- function(dt, nomes) {
-    valid <- all(nomes %in% names(dt))
+    valid <- nomes %in% names(dt)
+    all_valid <- all(valid)
+
+    if (!all_valid) {
+        not_valid <- nomes[!valid]
+        msg <- paste0("Colunas [", paste0(not_valid, collapse = ","), "] nao encontradas em `dt`")
+        stop(msg)
+    } else {
+        invisible(NULL)
+    }
+}
+
+#' Validador De Tipos De Colunas
+#' 
+#' Checa se colunas do dado `dt` tem tipos declarados em `tipos`
+#' 
+#' `tipos` deve ser uma lista nomeada de tipos de dados (i.e. `"Date"`, `"numeric"` e etc.). Cada
+#' elemento representa os tipos de valores da coluna correspondente a seu nome na lista. So serao
+#' checadas as colunas com elementos homonimos em `tipos`
+#' 
+#' @param dt um `data.table` no qual realizar checagem
+#' @param tipos lista nomeada de vetores numericos. Veja Detalhes
+#' 
+#' @return `NULL` se todos as checagens forem aprovadas; levanta erro do contrario
+
+valida_tipos_colunas <- function(dt, tipos) {
+    cols  <- names(tipos)
+    valid <- sapply(cols, function(col) inherits(dt[[col]], tipos[[col]]))
+    all_valid <- all(valid)
+
+    if (!all_valid) {
+        not_valid <- cols[!valid]
+        msgs <- lapply(not_valid, function(col) {
+            tipo <- paste0(tipos[[col]], collapse = ",")
+            paste0("Coluna `", col, "` nao e do tipo '", tipo, "'")
+        })
+        msgs <- paste0(msgs, collapse = " -/- ")
+        stop(msgs)
+    } else {
+        invisible(NULL)
+    }
 }
 
 #' Checa Se Valores Em `x` Pertencem Ao Intervalo Fechado `bounds`
@@ -18,7 +67,7 @@ is_in_bounds <- function(x, bounds) {
     all(x %between% bounds)
 }
 
-#' Wrapper Para Validacao De Limites Numericos
+#' Validador De Limites Numericos
 #' 
 #' Checa se colunas do dado `dt` pertencem aos intervalos declarados em `limites`
 #' 
