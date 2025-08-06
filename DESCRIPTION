@@ -20,3 +20,6 @@ Imports:
     lgr (>= 0.4.4)
 Remotes:
     lkhenayfis/dbrenovaveis
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
