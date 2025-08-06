@@ -52,41 +52,90 @@ NULL
 #' @rdname pfvio_getters
 
 get_usinas <- function(conn, ...) {
-    dbrenovaveis::getfromdb(conn, "usinas", ...)
+    lg <- get_pkg_logger()
+    lg$debug("Lendo dados das usinas...")
+
+    dt <- dbrenovaveis::getfromdb(conn, "usinas", ...)
+
+    lg$debug("Dados das usinas lidos com sucesso")
+
+    return(dt)
 }
 
 #' @rdname pfvio_getters
 
 get_potencia_disponivel_observada <- function(conn, ...) {
-    dbrenovaveis::getfromdb(conn, "potencia_disponivel_observada", ...)
+    lg <- get_pkg_logger()
+    lg$debug("Lendo dados de potencia disponivel observada...")
+
+    dt <- dbrenovaveis::getfromdb(conn, "potencia_disponivel_observada", ...)
+
+    lg$debug("Dados de potencia disponivel observada lidos com sucesso")
+
+    return(dt)
 }
 
 #' @rdname pfvio_getters
 
 get_geracao_observada <- function(conn, ...) {
-    dbrenovaveis::getfromdb(conn, "geracao_observada", ...)
+    lg <- get_pkg_logger()
+    lg$debug("Lendo dados de geracao observada...")
+
+    dt <- dbrenovaveis::getfromdb(conn, "geracao_observada", ...)
+
+    lg$debug("Dados de geracao observada lidos com sucesso")
+
+    return(dt)
 }
 
 #' @rdname pfvio_getters
 
 get_corte_observado <- function(conn, ...) {
-    dbrenovaveis::getfromdb(conn, "corte_observado", ...)
+    lg <- get_pkg_logger()
+    lg$debug("Lendo dados de corte observado...")
+
+    dt <- dbrenovaveis::getfromdb(conn, "corte_observado", ...)
+
+    lg$debug("Dados de corte observado lidos com sucesso")
+
+    return(dt)
 }
 
 #' @rdname pfvio_getters
 
 get_irradiancia_prevista <- function(conn, ...) {
-    dbrenovaveis::getfromdb(conn, "irradiancia_prevista", ...)
+    lg <- get_pkg_logger()
+    lg$debug("Lendo dados de irradiancia prevista...")
+
+    dt <- dbrenovaveis::getfromdb(conn, "irradiancia_prevista", ...)
+
+    lg$debug("Dados de irradiancia prevista lidos com sucesso")
+
+    return(dt)
 }
 
 #' @rdname pfvio_getters
 
 get_melhor_historico_geracao <- function(conn, ...) {
-    dbrenovaveis::getfromdb(conn, "melhor_historico_geracao", ...)
+    lg <- get_pkg_logger()
+    lg$debug("Lendo dados de melhor historico de geracao...")
+
+    dt <- dbrenovaveis::getfromdb(conn, "melhor_historico_geracao", ...)
+
+    lg$debug("Dados de melhor historico de geracao lidos com sucesso")
+
+    return(dt)
 }
 
 #' @rdname pfvio_getters
 
 get_melhor_historico_geracao_sem_cortes <- function(conn, ...) {
-    dbrenovaveis::getfromdb(conn, "melhor_historico_geracao_sem_cortes", ...)
+    lg <- get_pkg_logger()
+    lg$debug("Lendo dados de melhor de historico geracao sem cortes...")
+
+    dt <- dbrenovaveis::getfromdb(conn, "melhor_historico_geracao_sem_cortes", ...)
+
+    lg$debug("Dados de melhor historico de geracao sem cortes lidos com sucesso")
+
+    return(dt)
 }
