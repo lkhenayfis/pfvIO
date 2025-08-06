@@ -1,4 +1,22 @@
+#' Validador Completo Para Dado Unico
+#' 
+#' Realiza validacao de nomes, tipos e limites de valores das colunas de uma tabela lida
+#' 
+#' @param dt dado lido por uma das funcoes `pfvio_getters`
+#' @param nomes vetor de nomes esperados das colunas
+#' @param tipos vetor nomeado (nomes iguais aos das colunas) de tipos de dado esperados das colunas
+#' @param limites lista nomeada de (nomes iguais aos das colunas) de vetores indicando limite
+#'     inferior e superior aceitaveis naquela coluna. Veja `valida_limites()`
+#' 
+#' @return `NULL` invisvel caso a validacao transcorra sem erros; levanta erro do contrario
 
+valida_dado_singular_completo <- function(dt, nomes, tipos, limites) {
+    val_nomes <- valida_nomes_colunas(dt, nomes)
+    val_tipos <- valida_tipos_colunas(dt, tipos)
+    val_limits <- valida_limites_colunas(dt, tipos)
+
+    invisible(NULL)
+}
 
 # AUXILIARES ---------------------------------------------------------------------------------------
 
