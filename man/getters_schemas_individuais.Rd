@@ -8,6 +8,7 @@
 \alias{get_schema_corte_observado}
 \alias{get_schema_irradiancia_prevista}
 \alias{get_schema_melhor_historico_geracao}
+\alias{get_schema_melhor_historico_geracao_sem_cortes}
 \title{Wrappers De Schemas Individuais}
 \usage{
 get_schema_usinas()
@@ -21,6 +22,8 @@ get_schema_corte_observado()
 get_schema_irradiancia_prevista()
 
 get_schema_melhor_historico_geracao()
+
+get_schema_melhor_historico_geracao_sem_cortes()
 }
 \value{
 lista representando o schema da tabela

@@ -10,7 +10,7 @@ lista_arquivos(uri)
 \item{uri}{string indicando um diretorio local ou bucket no s3}
 }
 \value{
-vetor de arquivos existentes em \code{uri}
+vetor de arquivos, sem caminho, existentes em \code{uri}
 }
 \description{
 Wrapper para listar arquivos em um diretorio local ou bucket s3
