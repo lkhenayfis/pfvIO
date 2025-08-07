@@ -33,7 +33,7 @@
 #' dt <- get_geracao_observada(conn, id_usina = "BAUFI1")
 #' 
 #' # mesma usina e apenas dados do PI
-#' dt <- get_geracao_observada(conn, usina = "BAUFI1", id_fonte_observacao = "PI")
+#' dt <- get_geracao_observada(conn, id_usina = "BAUFI1", id_fonte_observacao = "PI")
 #' 
 #' # conjunto de tres usinas e apenas dados do PI
 #' dt <- get_melhor_historico_geracao(conn, id_usina = c("BAUFI1", "BAUFI2", "BAUFI3"))
@@ -44,7 +44,8 @@
 #' dt <- get_geracao_observada(conn, id_usina = "BAUFI1", data_hora_observacao = "2025-06-10")
 #' 
 #' # pegando janela 2025-06-20 10:00:00 a 2025-06-25 19:30:00
-#' dt <- get_geracao_observada(conn, id_usina = "BAUFI1", data_hora_observacao = "2025-06-20 10:00:00/2025-06-25 19:30:00")
+#' dt <- get_geracao_observada(conn, id_usina = "BAUFI1",
+#'     data_hora_observacao = "2025-06-20 10:00:00/2025-06-25 19:30:00")
 #' 
 #' @name pfvio_getters
 NULL
