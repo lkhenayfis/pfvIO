@@ -25,6 +25,8 @@
 #' }
 #' 
 #' @return objeto `mock`; Veja `dbrenovaveis::conectamock()`
+#' 
+#' @export
 
 conectamock_pfv <- function(uri) {
     uri <- classifica_uri(uri)

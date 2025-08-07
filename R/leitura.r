@@ -51,6 +51,8 @@
 NULL
 
 #' @rdname pfvio_getters
+#' 
+#' @export
 
 get_usinas <- function(conn, ...) {
     lg <- get_pkg_logger()
@@ -69,6 +71,8 @@ get_usinas <- function(conn, ...) {
 }
 
 #' @rdname pfvio_getters
+#' 
+#' @export
 
 get_potencia_disponivel_observada <- function(conn, ...) {
     lg <- get_pkg_logger()
@@ -87,6 +91,8 @@ get_potencia_disponivel_observada <- function(conn, ...) {
 }
 
 #' @rdname pfvio_getters
+#' 
+#' @export
 
 get_geracao_observada <- function(conn, ...) {
     lg <- get_pkg_logger()
@@ -105,6 +111,8 @@ get_geracao_observada <- function(conn, ...) {
 }
 
 #' @rdname pfvio_getters
+#' 
+#' @export
 
 get_corte_observado <- function(conn, ...) {
     lg <- get_pkg_logger()
@@ -123,6 +131,8 @@ get_corte_observado <- function(conn, ...) {
 }
 
 #' @rdname pfvio_getters
+#' 
+#' @export
 
 get_irradiancia_prevista <- function(conn, ...) {
     lg <- get_pkg_logger()
@@ -141,6 +151,8 @@ get_irradiancia_prevista <- function(conn, ...) {
 }
 
 #' @rdname pfvio_getters
+#' 
+#' @export
 
 get_melhor_historico_geracao <- function(conn, ...) {
     lg <- get_pkg_logger()
@@ -159,6 +171,8 @@ get_melhor_historico_geracao <- function(conn, ...) {
 }
 
 #' @rdname pfvio_getters
+#' 
+#' @export
 
 get_melhor_historico_geracao_sem_cortes <- function(conn, ...) {
     lg <- get_pkg_logger()
