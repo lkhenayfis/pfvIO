@@ -56,6 +56,7 @@ valida_nomes_colunas <- function(dt, nomes) {
 #' @return `NULL` se todos as checagens forem aprovadas; levanta erro do contrario
 
 valida_tipos_colunas <- function(dt, tipos) {
+    tipos <- extend_numeric(tipos)
     cols  <- names(tipos)
     valid <- sapply(cols, function(col) inherits(dt[[col]], tipos[[col]]))
     all_valid <- all(valid)
@@ -71,6 +72,23 @@ valida_tipos_colunas <- function(dt, tipos) {
     } else {
         invisible(NULL)
     }
+}
+
+#' Aumenta Tipo `"numeric"` Para Conter `"integer"` Tambem
+#' 
+#' Auxiliar para validacao de tipos de colunas
+#' 
+#' @param tipos vetor ou lista nomeado de tipos de dados
+#' 
+#' @return `tipos` com posicoes originalmente `"numeric"` aumentadas para `c("numeric", "integer")`
+
+extend_numeric <- function(tipos) {
+    tipos <- as.list(tipos)
+    is_numeric <- sapply(tipos, "==", "numeric")
+    if (any(is_numeric)) {
+        tipos[is_numeric] <- lapply(tipos[is_numeric], function(t) c("numeric", "integer"))
+    }
+    return(tipos)
 }
 
 #' Checa Se Valores Em `x` Pertencem Ao Intervalo Fechado `bounds`
