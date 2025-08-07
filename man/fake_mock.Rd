@@ -9,7 +9,7 @@ fake_mock(tabelas, uri)
 \arguments{
 \item{tabelas}{lista de tabelas preprocessadas}
 
-\item{uri}{caminho local ou no s3 do banco. Veja \code{conectamock_pfv()}}
+\item{uri}{caminho local ou no s3 do banco. Veja \code{\link{conectamock_pfv}}}
 }
 \value{
 objeto \code{mock} de conexao com o banco

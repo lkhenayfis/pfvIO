@@ -11,7 +11,7 @@ conectamock_pfv(uri)
 como um caminho completo, em string}
 }
 \value{
-objeto \code{mock}; Veja \code{dbrenovaveis::conectamock()}
+objeto \code{mock}; Veja \code{\link[dbrenovaveis:conectamock]{dbrenovaveis::conectamock}}
 }
 \description{
 Gera uma conexao com banco no padrao \code{dbrenovaveis} para uso das funcionalidades de leitura

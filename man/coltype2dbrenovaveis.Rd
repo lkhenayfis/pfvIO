@@ -7,7 +7,7 @@
 coltype2dbrenovaveis(schema)
 }
 \arguments{
-\item{schema}{um schema de tabela como retornado por \code{get_schemas}}
+\item{schema}{um schema de tabela como retornado por \code{\link{get_schemas}}}
 }
 \value{
 \code{schema} com tipos de colunas convertidos para padrao do \code{dbrenovaveis}

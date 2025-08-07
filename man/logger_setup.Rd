@@ -2,7 +2,7 @@
 % Please edit documentation in R/logger.r
 \name{logger_setup}
 \alias{logger_setup}
-\title{Gera Um Objeto \code{lgr::Logger}}
+\title{Gera Um Objeto \code{\link[lgr:Logger]{lgr::Logger}}}
 \usage{
 logger_setup(level = Sys.getenv("LOG_LEVEL", unset = "info"))
 }
@@ -11,7 +11,7 @@ logger_setup(level = Sys.getenv("LOG_LEVEL", unset = "info"))
 usa \code{"info"}}
 }
 \value{
-objeto \code{lgr::Logger}
+objeto \code{\link[lgr:Logger]{lgr::Logger}}
 }
 \description{
 Funcao interna para uso no loading do pacote, nao deve ser chamada diretamente pelo usuario

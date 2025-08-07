@@ -24,7 +24,7 @@
 #' conn <- conectamock_pfv(uri)
 #' }
 #' 
-#' @return objeto `mock`; Veja `dbrenovaveis::conectamock()`
+#' @return objeto `mock`; Veja [`dbrenovaveis::conectamock`]
 #' 
 #' @export
 
@@ -58,7 +58,7 @@ conectamock_pfv <- function(uri) {
 #' Gera um objeto `mock` "por fora" do `dbrenovaveis`
 #' 
 #' @param tabelas lista de tabelas preprocessadas
-#' @param uri caminho local ou no s3 do banco. Veja `conectamock_pfv()`
+#' @param uri caminho local ou no s3 do banco. Veja [`conectamock_pfv`]
 #' 
 #' @return objeto `mock` de conexao com o banco
 

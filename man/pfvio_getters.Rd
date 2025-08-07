@@ -26,7 +26,7 @@ get_melhor_historico_geracao(conn, ...)
 get_melhor_historico_geracao_sem_cortes(conn, ...)
 }
 \arguments{
-\item{conn}{um objeto de conexao com banco como gerado por \code{conectamock_pfv()}}
+\item{conn}{um objeto de conexao com banco como gerado por \code{\link{conectamock_pfv}}}
 
 \item{...}{definicoes de subset. Veja Detalhes e Exemplos}
 }

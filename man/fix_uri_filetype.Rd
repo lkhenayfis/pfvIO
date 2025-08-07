@@ -7,7 +7,7 @@
 fix_uri_filetype(schema, uri, fileType)
 }
 \arguments{
-\item{schema}{um schema unitario lido por \code{get_single_schema()}}
+\item{schema}{um schema unitario lido por \code{\link{get_single_schema}}}
 
 \item{uri}{string indicando a uri a substituir}
 

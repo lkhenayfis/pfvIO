@@ -7,7 +7,7 @@
 get_pkg_logger()
 }
 \value{
-objeto \code{lgr::Logger} gerado por \code{logger_setup()}
+objeto \code{\link[lgr:Logger]{lgr::Logger}} gerado por \code{\link{logger_setup}}
 }
 \description{
 Funcao auxiliar para acesso ao logger do pacote

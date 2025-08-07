@@ -1,11 +1,11 @@
-#' Gera Um Objeto `lgr::Logger`
+#' Gera Um Objeto [`lgr::Logger`]
 #' 
 #' Funcao interna para uso no loading do pacote, nao deve ser chamada diretamente pelo usuario
 #' 
 #' @param level nivel de logging. Procura a variavel de ambiente `"LOG_LEVEL"` e, caso nao exista,
 #'     usa `"info"`
 #' 
-#' @return objeto `lgr::Logger`
+#' @return objeto [`lgr::Logger`]
 
 logger_setup <- function(level = Sys.getenv("LOG_LEVEL", unset = "info")) {
     lg <- lgr::get_logger()
@@ -20,7 +20,7 @@ logger_setup <- function(level = Sys.getenv("LOG_LEVEL", unset = "info")) {
 #'
 #' Funcao auxiliar para acesso ao logger do pacote
 #'
-#' @return objeto `lgr::Logger` gerado por `logger_setup()`
+#' @return objeto [`lgr::Logger`] gerado por [`logger_setup`]
 #'
 #' @export
 

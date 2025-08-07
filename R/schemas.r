@@ -2,7 +2,7 @@
 #' 
 #' Auxiliar para converter chaves tipo de coluna para os nomes reconhecidos pelo `dbrenovaveis`
 #' 
-#' @param schema um schema de tabela como retornado por `get_schemas`
+#' @param schema um schema de tabela como retornado por [`get_schemas`]
 #' 
 #' @return `schema` com tipos de colunas convertidos para padrao do `dbrenovaveis`
 
@@ -26,7 +26,7 @@ coltype2dbrenovaveis <- function(schema) {
 #' 
 #' Auxiliar para compatibilizar o schema fixo com partes dinamicas, dependendo da fonte de dados
 #' 
-#' @param schema um schema unitario lido por `get_single_schema()`
+#' @param schema um schema unitario lido por [`get_single_schema`]
 #' @param uri string indicando a uri a substituir
 #' @param fileType string indicando a extensao (com `"."` inicial) a substituir
 #' 

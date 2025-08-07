@@ -7,14 +7,14 @@
 valida_dado_singular_completo(dt, nomes, tipos, limites)
 }
 \arguments{
-\item{dt}{dado lido por uma das funcoes \code{pfvio_getters}}
+\item{dt}{dado lido por uma das funcoes \code{\link{pfvio_getters}}}
 
 \item{nomes}{vetor de nomes esperados das colunas}
 
 \item{tipos}{vetor nomeado (nomes iguais aos das colunas) de tipos de dado esperados das colunas}
 
 \item{limites}{lista nomeada de (nomes iguais aos das colunas) de vetores indicando limite
-inferior e superior aceitaveis naquela coluna. Veja \code{valida_limites()}}
+inferior e superior aceitaveis naquela coluna. Veja \code{\link{valida_limites_colunas}}}
 }
 \value{
 \code{NULL} invisvel caso a validacao transcorra sem erros; levanta erro do contrario

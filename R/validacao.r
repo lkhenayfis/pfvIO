@@ -2,11 +2,11 @@
 #' 
 #' Realiza validacao de nomes, tipos e limites de valores das colunas de uma tabela lida
 #' 
-#' @param dt dado lido por uma das funcoes `pfvio_getters`
+#' @param dt dado lido por uma das funcoes [`pfvio_getters`]
 #' @param nomes vetor de nomes esperados das colunas
 #' @param tipos vetor nomeado (nomes iguais aos das colunas) de tipos de dado esperados das colunas
 #' @param limites lista nomeada de (nomes iguais aos das colunas) de vetores indicando limite
-#'     inferior e superior aceitaveis naquela coluna. Veja `valida_limites()`
+#'     inferior e superior aceitaveis naquela coluna. Veja [`valida_limites_colunas`]
 #' 
 #' @return `NULL` invisvel caso a validacao transcorra sem erros; levanta erro do contrario
 

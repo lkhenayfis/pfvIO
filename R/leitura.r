@@ -17,7 +17,7 @@
 #' um dos limites; neste caso sera interpretado como "tudo a partir de" (caso de somente limite
 #' inicial) ou "tudo ate" (caso contrario).
 #' 
-#' @param conn um objeto de conexao com banco como gerado por `conectamock_pfv()`
+#' @param conn um objeto de conexao com banco como gerado por [`conectamock_pfv`]
 #' @param ... definicoes de subset. Veja Detalhes e Exemplos
 #' 
 #' @return todas as funcoes retornam um `data.table`, de dado que depende de qual funcao foi
