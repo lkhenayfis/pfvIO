@@ -1,0 +1,60 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+Sys.setenv("LOG_LEVEL" = "info")
+library(pfvIO)
+```
+
+# pfvIO
+
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/lkhenayfis/pfvIO/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/lkhenayfis/pfvIO/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/lkhenayfis/pfvIO/graph/badge.svg)](https://app.codecov.io/gh/lkhenayfis/pfvIO)
+<!-- badges: end -->
+
+The goal of pfvIO is to ...
+
+## Instalacao
+
+Este pacote nao se encontra disponibilizado no CRAN, de modo que deve ser instalado 
+diretamente a partir do repositorio utilizando:
+
+```{r intro, eval = FALSE}
+# Caso a biblioteca remotes nao esteja instalada, execute install.packages("remotes") primeiro
+remotes::install_github("lkhenayfis/pfvIO") # instalacao da versao de desenvolvimento
+remotes::install_github("lkhenayfis/pfvIO@*release") # instalacao da ultima versao fechada
+```
+
+## Exemplo de uso
+
+O pacote `pfvIO` funciona a base de duas funcoes, essencialmente: `conectamock_pfv` e `get_dataset`.
+`conectamock_pfv` e necessaria para estabelecer uma conexao com o banco, esteja ele local ou num
+bucket s3
+
+```{r, eval = TRUE}
+# exemplo com os dados internos do pacote
+conn <- conectamock_pfv(system.file("extdata", package = "pfvIO"))
+print(conn)
+```
+
+Uma vez estabelecida a conexao com um banco, `get_dataset` pode ser utilizada para ler um conjunto
+completo de dados
+
+```{r, eval = TRUE}
+dataset <- get_dataset(conn, id_usina = "BAUFI1", data_hora_observacao = "2025-07-01",
+    data_hora_previsao = "2025-07-01")
+lapply(dataset, head)
+```
+
+Os argumentos nomeados de `get_dataset` correspondem aos subsets sendo aplicados. Para mais detalhes
+a respeito, use `help("pfvio_getters")`
