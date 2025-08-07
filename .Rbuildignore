@@ -1,3 +1,5 @@
 ^informals$
 ^LICENSE\.md$
 ^.Renviron$
+^README\.Rmd$
+^\.github$
