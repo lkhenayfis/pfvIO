@@ -9,7 +9,7 @@
 \alias{get_irradiancia_prevista}
 \alias{get_melhor_historico_geracao}
 \alias{get_melhor_historico_geracao_sem_cortes}
-\title{Getters De Dados}
+\title{Getters De Dados Individuais}
 \usage{
 get_usinas(conn, ...)
 
