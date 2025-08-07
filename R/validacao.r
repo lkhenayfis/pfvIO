@@ -99,7 +99,7 @@ extend_numeric <- function(tipos) {
 #' @return booleano indicando se todos os valores de `x` pertencem a `[bounds[1], bounds[2]]`
 
 is_in_bounds <- function(x, bounds) {
-    x <- na.omit(x)
+    x <- stats::na.omit(x)
     all(x %between% bounds)
 }
 
