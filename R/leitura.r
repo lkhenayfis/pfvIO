@@ -56,6 +56,11 @@ get_usinas <- function(conn, ...) {
     lg$debug("Lendo dados das usinas...")
 
     dt <- dbrenovaveis::getfromdb(conn, "usinas", ...)
+    valida_dado_singular_completo(dt,
+        guess_col_names("usinas"),
+        guess_col_types("usinas"),
+        guess_col_limits("usinas")
+    )
 
     lg$debug("Dados das usinas lidos com sucesso")
 
@@ -69,6 +74,11 @@ get_potencia_disponivel_observada <- function(conn, ...) {
     lg$debug("Lendo dados de potencia disponivel observada...")
 
     dt <- dbrenovaveis::getfromdb(conn, "potencia_disponivel_observada", ...)
+    valida_dado_singular_completo(dt,
+        guess_col_names("potencia_disponivel_observada"),
+        guess_col_types("potencia_disponivel_observada"),
+        guess_col_limits("potencia_disponivel_observada")
+    )
 
     lg$debug("Dados de potencia disponivel observada lidos com sucesso")
 
@@ -82,6 +92,11 @@ get_geracao_observada <- function(conn, ...) {
     lg$debug("Lendo dados de geracao observada...")
 
     dt <- dbrenovaveis::getfromdb(conn, "geracao_observada", ...)
+    valida_dado_singular_completo(dt,
+        guess_col_names("geracao_observada"),
+        guess_col_types("geracao_observada"),
+        guess_col_limits("geracao_observada")
+    )
 
     lg$debug("Dados de geracao observada lidos com sucesso")
 
@@ -95,6 +110,11 @@ get_corte_observado <- function(conn, ...) {
     lg$debug("Lendo dados de corte observado...")
 
     dt <- dbrenovaveis::getfromdb(conn, "corte_observado", ...)
+    valida_dado_singular_completo(dt,
+        guess_col_names("corte_observado"),
+        guess_col_types("corte_observado"),
+        guess_col_limits("corte_observado")
+    )
 
     lg$debug("Dados de corte observado lidos com sucesso")
 
@@ -108,6 +128,11 @@ get_irradiancia_prevista <- function(conn, ...) {
     lg$debug("Lendo dados de irradiancia prevista...")
 
     dt <- dbrenovaveis::getfromdb(conn, "irradiancia_prevista", ...)
+    valida_dado_singular_completo(dt,
+        guess_col_names("irradiancia_prevista"),
+        guess_col_types("irradiancia_prevista"),
+        guess_col_limits("irradiancia_prevista")
+    )
 
     lg$debug("Dados de irradiancia prevista lidos com sucesso")
 
@@ -121,6 +146,11 @@ get_melhor_historico_geracao <- function(conn, ...) {
     lg$debug("Lendo dados de melhor historico de geracao...")
 
     dt <- dbrenovaveis::getfromdb(conn, "melhor_historico_geracao", ...)
+    valida_dado_singular_completo(dt,
+        guess_col_names("melhor_historico_geracao"),
+        guess_col_types("melhor_historico_geracao"),
+        guess_col_limits("melhor_historico_geracao")
+    )
 
     lg$debug("Dados de melhor historico de geracao lidos com sucesso")
 
@@ -134,6 +164,11 @@ get_melhor_historico_geracao_sem_cortes <- function(conn, ...) {
     lg$debug("Lendo dados de melhor de historico geracao sem cortes...")
 
     dt <- dbrenovaveis::getfromdb(conn, "melhor_historico_geracao_sem_cortes", ...)
+    valida_dado_singular_completo(dt,
+        guess_col_names("melhor_historico_geracao_sem_cortes"),
+        guess_col_types("melhor_historico_geracao_sem_cortes"),
+        guess_col_limits("melhor_historico_geracao_sem_cortes")
+    )
 
     lg$debug("Dados de melhor historico de geracao sem cortes lidos com sucesso")
 
