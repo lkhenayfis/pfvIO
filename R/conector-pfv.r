@@ -31,7 +31,7 @@
 conectamock_pfv <- function(uri) {
     uri <- classifica_uri(uri)
 
-    arquivos  <- lista_arquivos.uri_local(uri)
+    arquivos  <- lista_arquivos(uri)
     extensoes <- id_tipo_arquivo(arquivos)
     tabelas   <- sub("\\..*", "", arquivos)
 
