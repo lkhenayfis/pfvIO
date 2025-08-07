@@ -13,7 +13,7 @@
 valida_dado_singular_completo <- function(dt, nomes, tipos, limites) {
     val_nomes <- valida_nomes_colunas(dt, nomes)
     val_tipos <- valida_tipos_colunas(dt, tipos)
-    val_limits <- valida_limites_colunas(dt, tipos)
+    val_limits <- valida_limites_colunas(dt, limites)
 
     invisible(NULL)
 }
@@ -116,7 +116,7 @@ is_in_bounds <- function(x, bounds) {
 #' 
 #' @return `NULL` se todos as checagens forem aprovadas; levanta erro do contrario
 
-valida_limites <- function(dt, limites) {
+valida_limites_colunas <- function(dt, limites) {
     cols  <- names(limites)
     valid <- sapply(cols, function(col) is_in_bounds(dt[[col]], limites[[col]]))
     all_valid <- all(valid)
