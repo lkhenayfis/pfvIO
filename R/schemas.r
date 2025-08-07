@@ -1,6 +1,10 @@
 #' Converte Tipo De Coluna Para Padrao `dbrenovaveis`
 #' 
 #' Auxiliar para converter chaves tipo de coluna para os nomes reconhecidos pelo `dbrenovaveis`
+#' 
+#' @param schema um schema de tabela como retornado por `get_schemas`
+#' 
+#' @return `schema` com tipos de colunas convertidos para padrao do `dbrenovaveis`
 
 coltype2dbrenovaveis <- function(schema) {
     cols <- schema$columns

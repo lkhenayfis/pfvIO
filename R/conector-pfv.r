@@ -58,6 +58,7 @@ conectamock_pfv <- function(uri) {
 #' Gera um objeto `mock` "por fora" do `dbrenovaveis`
 #' 
 #' @param tabelas lista de tabelas preprocessadas
+#' @param uri caminho local ou no s3 do banco. Veja `conectamock_pfv()`
 #' 
 #' @return objeto `mock` de conexao com o banco
 

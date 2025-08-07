@@ -6,6 +6,12 @@
 \usage{
 coltype2dbrenovaveis(schema)
 }
+\arguments{
+\item{schema}{um schema de tabela como retornado por \code{get_schemas}}
+}
+\value{
+\code{schema} com tipos de colunas convertidos para padrao do \code{dbrenovaveis}
+}
 \description{
 Auxiliar para converter chaves tipo de coluna para os nomes reconhecidos pelo \code{dbrenovaveis}
 }
