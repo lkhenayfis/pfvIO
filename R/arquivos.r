@@ -44,7 +44,13 @@ lista_arquivos.uri_s3 <- function(uri) {
 #' @return vetor com comprimento de `arquivos` contendo a extensao de cada um
 
 id_tipo_arquivo <- function(arquivos) {
-    sub(".*\\.", ".", arquivos)
+    exts <- strsplit(arquivos, "\\.")
+    exts <- sapply(exts, function(e) {
+        e <- e[-1]
+        e <- paste0(e, collapse = ".")
+        paste0(".", e)
+    })
+    exts
 }
 
 # HELPERS ------------------------------------------------------------------------------------------
@@ -58,7 +64,7 @@ id_tipo_arquivo <- function(arquivos) {
 #' @return vetor de duas posicoes: bucket e prefixo separados de `uri`
 
 split_bucket_prefix <- function(uri) {
-    bucket <- regmatches(uri, regexpr("s3://([a-z]|\\-)+(?=/)", uri, perl = TRUE))
-    prefix <- sub("s3://([a-z]|\\-)+/", "", uri, perl = TRUE)
+    bucket <- regmatches(uri, regexpr("s3://([a-z]|[\\_\\-])+(?=/)", uri, perl = TRUE))
+    prefix <- sub("s3://([a-z]|[\\_\\-])+/", "", uri, perl = TRUE)
     return(c(bucket, prefix))
 }
