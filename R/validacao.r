@@ -18,17 +18,11 @@
 #' 
 #' @return `NULL` invisivel, se `tabelas` nao contiver nomes invalidos; levanta erro do contrario
 
-valida_nomes_tabelas <- function(tabelas) {
-    ref <- c(
-        "usinas",
-        "potencia_disponivel_observada",
-        "geracao_observada",
-        "corte_observado",
-        "irradiancia_prevista",
-        "melhor_historico_geracao",
-        "melhor_historico_geracao_sem_cortes"
-    )
+valida_filtra_tabelas <- function(tabelas) {
 
+    ref <- supported_tables()
+
+    tabelas <- sub("\\..*", "", tabelas)
     is_valid <- tabelas %in% ref
 
     if (!all(is_valid)) {
@@ -38,7 +32,36 @@ valida_nomes_tabelas <- function(tabelas) {
         stop(msg)
     }
 
-    invisible(NULL)
+    tabelas <- tabelas[is_valid]
+    return(tabelas)
+}
+
+#' Wrapper De Lista De Tabelas Suportadas
+#' 
+#' Funcao dummy que retorna vetor de tabelas suportadas
+#' 
+#' Atualmente sao suportados os seguintes tipos de arquivos tabulares
+#' 
+#' * `usinas`
+#' * `potencia_disponivel_observada`
+#' * `geracao_observada`
+#' * `corte_observado`
+#' * `irradiancia_prevista`
+#' * `melhor_historico_geracao`
+#' * `melhor_historico_geracao_sem_cortes`
+#' 
+#' @return vetor de nomes das tabelas suportadas no pacote
+
+supported_tables <- function() {
+    c(
+        "usinas",
+        "potencia_disponivel_observada",
+        "geracao_observada",
+        "corte_observado",
+        "irradiancia_prevista",
+        "melhor_historico_geracao",
+        "melhor_historico_geracao_sem_cortes"
+    )
 }
 
 #' Validador Completo Para Dado Unico
