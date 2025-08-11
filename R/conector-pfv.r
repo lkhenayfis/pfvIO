@@ -33,7 +33,9 @@ conectamock_pfv <- function(uri) {
 
     arquivos  <- lista_arquivos(uri)
     extensoes <- id_tipo_arquivo(arquivos)
-    tabelas   <- sub("\\..*", "", arquivos)
+
+    config  <- arquivos[grepl(".json(c)?$", arquivos)]
+    tabelas <- valida_filtra_tabelas(arquivos)
 
     schemas <- get_schemas(tabelas)
     schemas <- mapply(
@@ -50,7 +52,7 @@ conectamock_pfv <- function(uri) {
     schemas <- lapply(schemas, coltype2dbrenovaveis)
     tabelas <- lapply(schemas, dbrenovaveis:::schema2tabela)
 
-    fake_mock(tabelas, uri)
+    fake_mock(tabelas, uri, config)
 }
 
 #' Construtor Interno De Conexao Com Banco
@@ -59,12 +61,14 @@ conectamock_pfv <- function(uri) {
 #' 
 #' @param tabelas lista de tabelas preprocessadas
 #' @param uri caminho local ou no s3 do banco. Veja [`conectamock_pfv`]
+#' @param config caminho local ou no s3 do arquivo de configuracao no banco
 #' 
 #' @return objeto `mock` de conexao com o banco
 
-fake_mock <- function(tabelas, uri) {
+fake_mock <- function(tabelas, uri, config) {
     out <- structure(list(tabelas = tabelas), class = "mock")
     attr(out, "uri") <- uri
+    attr(out, "config") <- config
 
     return(out)
 }

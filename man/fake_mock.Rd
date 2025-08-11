@@ -4,12 +4,14 @@
 \alias{fake_mock}
 \title{Construtor Interno De Conexao Com Banco}
 \usage{
-fake_mock(tabelas, uri)
+fake_mock(tabelas, uri, config)
 }
 \arguments{
 \item{tabelas}{lista de tabelas preprocessadas}
 
 \item{uri}{caminho local ou no s3 do banco. Veja \code{\link{conectamock_pfv}}}
+
+\item{config}{caminho local ou no s3 do arquivo de configuracao no banco}
 }
 \value{
 objeto \code{mock} de conexao com o banco
