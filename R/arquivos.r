@@ -26,7 +26,7 @@ lista_arquivos <- function(uri) UseMethod("lista_arquivos")
 
 #' @method lista_arquivos uri_local
 
-lista_arquivos.uri_local <- function(uri) list.files(uri)
+lista_arquivos.uri_local <- function(uri) list.files(uri, pattern = supported_files(TRUE))
 
 #' @method lista_arquivos uri_s3
 
@@ -34,6 +34,7 @@ lista_arquivos.uri_s3 <- function(uri) {
     splitted <- split_bucket_prefix(uri)
     arqs <- aws.s3::get_bucket(splitted[1], splitted[2])
     arqs <- sapply(unname(arqs), "[[", "Key")
+    arqs <- arqs[sapply(arqs, grepl, pattern = supported_files(TRUE))]
     sub(".*/", "", arqs)
 }
 
@@ -51,6 +52,36 @@ id_tipo_arquivo <- function(arquivos) {
         paste0(".", e)
     })
     exts
+}
+
+#' Wrapper De Lista De Tipos De Arquivos Suportados
+#' 
+#' Funcao dummy que retorna vetor de extensoes suportadas, opcionalmente como padrao para regex
+#' 
+#' Atualmente sao suportados os seguintes tipos de arquivos tabulares
+#' 
+#' * `.csv`
+#' * `.parquet`
+#' * `.parquet.gzip`
+#' 
+#' ... e arquivos de lista chave-valor
+#' 
+#' * `.json`
+#' * `.jsonc`
+#' 
+#' @param as_regex booleano indicando se extensoes devem ser retornadas como padrao para regex
+#' 
+#' @return se `as_regex = FALSE` (padrao), vetor de extensoes; do contrario uma string combinando
+#'     todas em padrao para uso com funcoes de regex (`sub`, `grep` e etc.)
+
+supported_files <- function(as_regex = FALSE) {
+    files <- c(".csv", ".parquet", ".parquet.gzip", ".json", ".jsonc")
+    if (as_regex) {
+        files <- paste0(files, collapse = "|")
+        files <- paste0("(", files, ")$")
+    }
+
+    return(files)
 }
 
 # HELPERS ------------------------------------------------------------------------------------------
