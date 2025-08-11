@@ -1,3 +1,46 @@
+#' Validador De Nomes De Tabelas Do Banco
+#' 
+#' Checa se os nomes em `tabelas` sao nomes validos no schema do banco
+#' 
+#' O PFV atualmente suporta as tabelas
+#' 
+#' * `usinas`
+#' * `potencia_disponivel_observada`
+#' * `geracao_observada`
+#' * `corte_observado`
+#' * `irradiancia_prevista`
+#' * `melhor_historico_geracao`
+#' * `melhor_historico_geracao_sem_cortes`
+#' 
+#' Qualquer nome diferente destes levantara um erro
+#' 
+#' @param tabelas um vetor de nomes de tabelas a serem batidos contra as existentes no banco
+#' 
+#' @return `NULL` invisivel, se `tabelas` nao contiver nomes invalidos; levanta erro do contrario
+
+valida_nomes_tabelas <- function(tabelas) {
+    ref <- c(
+        "usinas",
+        "potencia_disponivel_observada",
+        "geracao_observada",
+        "corte_observado",
+        "irradiancia_prevista",
+        "melhor_historico_geracao",
+        "melhor_historico_geracao_sem_cortes"
+    )
+
+    is_valid <- tabelas %in% ref
+
+    if (!all(is_valid)) {
+        invalidas <- tabelas[!is_valid]
+        invalidas <- paste0(invalidas, collapse = ",")
+        msg <- paste0("Tabelas [", invalidas, "] nao sao reconhecidas por `pfvIO`")
+        stop(msg)
+    }
+
+    invisible(NULL)
+}
+
 #' Validador Completo Para Dado Unico
 #' 
 #' Realiza validacao de nomes, tipos e limites de valores das colunas de uma tabela lida

@@ -1,3 +1,21 @@
+test_that("valida_filtra_tabelas", {
+
+    nomes <- c(
+        "usinas",
+        "potencia_disponivel_observada",
+        "geracao_observada",
+        "corte_observado",
+        "irradiancia_prevista",
+        "melhor_historico_geracao",
+        "melhor_historico_geracao_sem_cortes"
+    )
+
+    expect_null(valida_filtra_tabelas(nomes))
+
+    nomes[1] <- "nome_novo"
+    expect_error(valida_filtra_tabelas(nomes))
+})
+
 test_that("valida_nomes_colunas", {
 
     dd <- fread(system.file("extdata/usinas.csv", package = "pfvIO"))
