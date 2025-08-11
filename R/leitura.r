@@ -70,6 +70,8 @@ get_dataset <- function(conn, ...) {
 #' dt <- get_geracao_observada(conn, id_usina = "BAUFI1",
 #'     data_hora_observacao = "2025-06-20 10:00:00/2025-06-25 19:30:00")
 #' 
+#' @seealso [`get_config`]
+#' 
 #' @name pfvio_getters
 NULL
 
@@ -211,4 +213,22 @@ get_melhor_historico_geracao_sem_cortes <- function(conn, ...) {
     lg$debug("Dados de melhor historico de geracao sem cortes lidos com sucesso")
 
     return(dt)
+}
+
+#' Getter Do Arquivo De Configuracao
+#' 
+#' Wrapper para acesso ao arquivo de configuracao no caminho de dados
+#' 
+#' @param conn um objeto de conexao com banco como gerado por [`conectamock_pfv`]
+#' @param ... sem uso, existe apenas para consistencia com as outras getters
+#' 
+#' @return lista do arquivo de configuracao lido
+#' 
+#' @export
+
+get_config <- function(conn, ...) {
+    uri <- attr(conn, "uri")
+    rf  <- dbrenovaveis:::switch_reader_func("json", inherits(uri, "uri_s3"))
+    config <- rf(file.path(uri, attr(conn, "config")))
+    return(config)
 }

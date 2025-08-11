@@ -80,3 +80,15 @@ test_that("get_dataset", {
         dbrenovaveis::getfromdb(conn, "potencia_disponivel_observada", id_usina = "BAUFI3")
     )
 })
+
+test_that("get_config", {
+    local <- system.file("extdata/", package = "pfvIO")
+    conn_local <- conectamock_pfv(local)
+    config_local <- get_config(conn_local)
+    expect_equal(config_local, list(nome = 1))
+
+    s3 <- "s3://ons-pem-historico/solar/pfvIO-teste"
+    conn_s3 <- conectamock_pfv(s3)
+    config_s3 <- get_config(conn_s3)
+    expect_equal(config_s3, list(nome = 1))
+})
