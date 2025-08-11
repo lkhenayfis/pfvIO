@@ -34,14 +34,15 @@ conectamock_pfv <- function(uri) {
     arquivos  <- lista_arquivos(uri)
     extensoes <- id_tipo_arquivo(arquivos)
 
-    config  <- arquivos[grepl(".json(c)?$", arquivos)]
-    tabelas <- valida_filtra_tabelas(arquivos)
+    which_config <- grepl("json(c)?", extensoes)
+    config  <- arquivos[which_config]
+    tabelas <- valida_filtra_tabelas(arquivos[!which_config])
 
     schemas <- get_schemas(tabelas)
     schemas <- mapply(
         function(s, f, uri) fix_uri_filetype(s, uri, f),
         schemas,
-        extensoes,
+        extensoes[!which_config],
         MoreArgs = list(uri = uri),
         SIMPLIFY = FALSE
     )
