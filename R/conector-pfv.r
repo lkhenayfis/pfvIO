@@ -1,8 +1,8 @@
 #' Construtor Externo De Conexao Com Banco
 #' 
-#' Gera uma conexao com banco no padrao `dbrenovaveis` para uso das funcionalidades de leitura
+#' Gera uma conexao com banco no padrao `dbinterface` para uso das funcionalidades de leitura
 #' 
-#' Usualmente o `dbrenovaveis` espera encontrar um arquivo `"schema.json"` a partir do qual montar o
+#' Usualmente o `dbinterface` espera encontrar um arquivo `"schema.json"` a partir do qual montar o
 #' banco de dados. No caso do modelo PFV, e necessario fazer interface com os dados sem este
 #' arquivo, se baseando em schemas internamente definidos pelo pacote.
 #' 
@@ -24,7 +24,7 @@
 #' conn <- conectamock_pfv(uri)
 #' }
 #' 
-#' @return objeto `mock`; Veja [`dbrenovaveis::conectamock`]
+#' @return objeto `mock`; Veja [`dbinterface::conectamock`]
 #' 
 #' @export
 
@@ -50,15 +50,15 @@ conectamock_pfv <- function(uri) {
     # valida cada tabela contra o schema
     #     para validar vai precisar pegar um head de cada tabela, sem usar o getfromdb ainda
 
-    schemas <- lapply(schemas, coltype2dbrenovaveis)
-    tabelas <- lapply(schemas, dbrenovaveis:::schema2tabela)
+    schemas <- lapply(schemas, coltype2dbinterface)
+    tabelas <- lapply(schemas, dbinterface:::schema2tabela)
 
     fake_mock(tabelas, uri, config)
 }
 
 #' Construtor Interno De Conexao Com Banco
 #' 
-#' Gera um objeto `mock` "por fora" do `dbrenovaveis`
+#' Gera um objeto `mock` "por fora" do `dbinterface`
 #' 
 #' @param tabelas lista de tabelas preprocessadas
 #' @param uri caminho local ou no s3 do banco. Veja [`conectamock_pfv`]

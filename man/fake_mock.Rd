@@ -17,5 +17,5 @@ fake_mock(tabelas, uri, config)
 objeto \code{mock} de conexao com o banco
 }
 \description{
-Gera um objeto \code{mock} "por fora" do \code{dbrenovaveis}
+Gera um objeto \code{mock} "por fora" do \code{dbinterface}
 }

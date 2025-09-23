@@ -1,6 +1,6 @@
 Package: pfvIO
 Title: Funcionalidades De Input/Output Para O Modelo De Previsão De Geracao Solar Fotovoltaica
-Version: 0.2
+Version: 0.2.0.9000
 Authors@R: 
     person("Lucas", "Khenayfis", , "lkhenayfis@ons.org.br", role = c("aut", "cre"))
 Description: Este e um pacote companion do modelo de previsao de geracao solar fotovoltaica. Contem
@@ -15,11 +15,11 @@ Depends:
     utils (>= 4.3)
 Imports: 
     data.table (>= 1.17.0),
-    dbrenovaveis (>= 0.8.1),
+    dbinterface (>= 0.8.1),
     aws.s3 (>= 0.3.20),
     lgr (>= 0.4.4)
 Remotes:
-    lkhenayfis/dbrenovaveis
+    lkhenayfis/dbinterface
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

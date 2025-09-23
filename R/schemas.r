@@ -1,12 +1,12 @@
-#' Converte Tipo De Coluna Para Padrao `dbrenovaveis`
+#' Converte Tipo De Coluna Para Padrao `dbinterface`
 #' 
-#' Auxiliar para converter chaves tipo de coluna para os nomes reconhecidos pelo `dbrenovaveis`
+#' Auxiliar para converter chaves tipo de coluna para os nomes reconhecidos pelo `dbinterface`
 #' 
 #' @param schema um schema de tabela como retornado por [`get_schemas`]
 #' 
-#' @return `schema` com tipos de colunas convertidos para padrao do `dbrenovaveis`
+#' @return `schema` com tipos de colunas convertidos para padrao do `dbinterface`
 
-coltype2dbrenovaveis <- function(schema) {
+coltype2dbinterface <- function(schema) {
     cols <- schema$columns
     cols <- lapply(cols, function(col) {
         col$type <- switch(col$type,

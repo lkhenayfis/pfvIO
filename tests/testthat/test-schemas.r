@@ -1,4 +1,4 @@
-test_that("coltype2dbrenovaveis", {
+test_that("coltype2dbinterface", {
     schema <- get_schema_usinas()
     schema$columns <- list(
         list(name = "col1", type = "character"),
@@ -7,7 +7,7 @@ test_that("coltype2dbrenovaveis", {
         list(name = "col4", type = "Date"),
         list(name = "col5", type = "POSIXct")
     )
-    schema2 <- coltype2dbrenovaveis(schema)
+    schema2 <- coltype2dbinterface(schema)
 
     expect_identical(
         schema[-which(names(schema) == "columns")],

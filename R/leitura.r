@@ -83,7 +83,7 @@ get_usinas <- function(conn, ...) {
     lg <- get_pkg_logger()
     lg$debug("Lendo dados das usinas...")
 
-    dt <- dbrenovaveis::getfromdb(conn, "usinas", ...)
+    dt <- dbinterface::getfromdb(conn, "usinas", ...)
     valida_dado_singular_completo(dt,
         guess_col_names("usinas"),
         guess_col_types("usinas"),
@@ -103,7 +103,7 @@ get_potencia_disponivel_observada <- function(conn, ...) {
     lg <- get_pkg_logger()
     lg$debug("Lendo dados de potencia disponivel observada...")
 
-    dt <- dbrenovaveis::getfromdb(conn, "potencia_disponivel_observada", ...)
+    dt <- dbinterface::getfromdb(conn, "potencia_disponivel_observada", ...)
     valida_dado_singular_completo(dt,
         guess_col_names("potencia_disponivel_observada"),
         guess_col_types("potencia_disponivel_observada"),
@@ -123,7 +123,7 @@ get_geracao_observada <- function(conn, ...) {
     lg <- get_pkg_logger()
     lg$debug("Lendo dados de geracao observada...")
 
-    dt <- dbrenovaveis::getfromdb(conn, "geracao_observada", ...)
+    dt <- dbinterface::getfromdb(conn, "geracao_observada", ...)
     valida_dado_singular_completo(dt,
         guess_col_names("geracao_observada"),
         guess_col_types("geracao_observada"),
@@ -143,7 +143,7 @@ get_corte_observado <- function(conn, ...) {
     lg <- get_pkg_logger()
     lg$debug("Lendo dados de corte observado...")
 
-    dt <- dbrenovaveis::getfromdb(conn, "corte_observado", ...)
+    dt <- dbinterface::getfromdb(conn, "corte_observado", ...)
     valida_dado_singular_completo(dt,
         guess_col_names("corte_observado"),
         guess_col_types("corte_observado"),
@@ -163,7 +163,7 @@ get_irradiancia_prevista <- function(conn, ...) {
     lg <- get_pkg_logger()
     lg$debug("Lendo dados de irradiancia prevista...")
 
-    dt <- dbrenovaveis::getfromdb(conn, "irradiancia_prevista", ...)
+    dt <- dbinterface::getfromdb(conn, "irradiancia_prevista", ...)
     valida_dado_singular_completo(dt,
         guess_col_names("irradiancia_prevista"),
         guess_col_types("irradiancia_prevista"),
@@ -183,7 +183,7 @@ get_melhor_historico_geracao <- function(conn, ...) {
     lg <- get_pkg_logger()
     lg$debug("Lendo dados de melhor historico de geracao...")
 
-    dt <- dbrenovaveis::getfromdb(conn, "melhor_historico_geracao", ...)
+    dt <- dbinterface::getfromdb(conn, "melhor_historico_geracao", ...)
     valida_dado_singular_completo(dt,
         guess_col_names("melhor_historico_geracao"),
         guess_col_types("melhor_historico_geracao"),
@@ -203,7 +203,7 @@ get_melhor_historico_geracao_sem_cortes <- function(conn, ...) {
     lg <- get_pkg_logger()
     lg$debug("Lendo dados de melhor de historico geracao sem cortes...")
 
-    dt <- dbrenovaveis::getfromdb(conn, "melhor_historico_geracao_sem_cortes", ...)
+    dt <- dbinterface::getfromdb(conn, "melhor_historico_geracao_sem_cortes", ...)
     valida_dado_singular_completo(dt,
         guess_col_names("melhor_historico_geracao_sem_cortes"),
         guess_col_types("melhor_historico_geracao_sem_cortes"),
@@ -228,7 +228,7 @@ get_melhor_historico_geracao_sem_cortes <- function(conn, ...) {
 
 get_config <- function(conn, ...) {
     uri <- attr(conn, "uri")
-    rf  <- dbrenovaveis:::switch_reader_func("json", inherits(uri, "uri_s3"))
+    rf  <- dbinterface:::switch_reader_func("json", inherits(uri, "uri_s3"))
     config <- rf(file.path(uri, attr(conn, "config")))
     return(config)
 }

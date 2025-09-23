@@ -7,37 +7,37 @@ test_that("get_dataset", {
 
     expect_identical(
         dataset$usinas,
-        dbrenovaveis::getfromdb(conn, "usinas", id_usina = "BAUFI3")
+        dbinterface::getfromdb(conn, "usinas", id_usina = "BAUFI3")
     )
 
     expect_identical(
         dataset$corte_observado,
-        dbrenovaveis::getfromdb(conn, "corte_observado", id_usina = "BAUFI3")
+        dbinterface::getfromdb(conn, "corte_observado", id_usina = "BAUFI3")
     )
 
     expect_identical(
         dataset$geracao_observada,
-        dbrenovaveis::getfromdb(conn, "geracao_observada", id_usina = "BAUFI3")
+        dbinterface::getfromdb(conn, "geracao_observada", id_usina = "BAUFI3")
     )
 
     expect_identical(
         dataset$irradiancia_prevista,
-        dbrenovaveis::getfromdb(conn, "irradiancia_prevista", id_usina = "BAUFI3")
+        dbinterface::getfromdb(conn, "irradiancia_prevista", id_usina = "BAUFI3")
     )
 
     expect_identical(
         dataset$melhor_historico_geracao_sem_cortes,
-        dbrenovaveis::getfromdb(conn, "melhor_historico_geracao_sem_cortes", id_usina = "BAUFI3")
+        dbinterface::getfromdb(conn, "melhor_historico_geracao_sem_cortes", id_usina = "BAUFI3")
     )
 
     expect_identical(
         dataset$melhor_historico_geracao,
-        dbrenovaveis::getfromdb(conn, "melhor_historico_geracao", id_usina = "BAUFI3")
+        dbinterface::getfromdb(conn, "melhor_historico_geracao", id_usina = "BAUFI3")
     )
 
     expect_identical(
         dataset$potencia_disponivel_observada,
-        dbrenovaveis::getfromdb(conn, "potencia_disponivel_observada", id_usina = "BAUFI3")
+        dbinterface::getfromdb(conn, "potencia_disponivel_observada", id_usina = "BAUFI3")
     )
 
     # s3
@@ -47,37 +47,37 @@ test_that("get_dataset", {
 
     expect_identical(
         dataset$usinas,
-        dbrenovaveis::getfromdb(conn, "usinas", id_usina = "BAUFI3")
+        dbinterface::getfromdb(conn, "usinas", id_usina = "BAUFI3")
     )
 
     expect_identical(
         dataset$corte_observado,
-        dbrenovaveis::getfromdb(conn, "corte_observado", id_usina = "BAUFI3")
+        dbinterface::getfromdb(conn, "corte_observado", id_usina = "BAUFI3")
     )
 
     expect_identical(
         dataset$geracao_observada,
-        dbrenovaveis::getfromdb(conn, "geracao_observada", id_usina = "BAUFI3")
+        dbinterface::getfromdb(conn, "geracao_observada", id_usina = "BAUFI3")
     )
 
     expect_identical(
         dataset$irradiancia_prevista,
-        dbrenovaveis::getfromdb(conn, "irradiancia_prevista", id_usina = "BAUFI3")
+        dbinterface::getfromdb(conn, "irradiancia_prevista", id_usina = "BAUFI3")
     )
 
     expect_identical(
         dataset$melhor_historico_geracao_sem_cortes,
-        dbrenovaveis::getfromdb(conn, "melhor_historico_geracao_sem_cortes", id_usina = "BAUFI3")
+        dbinterface::getfromdb(conn, "melhor_historico_geracao_sem_cortes", id_usina = "BAUFI3")
     )
 
     expect_identical(
         dataset$melhor_historico_geracao,
-        dbrenovaveis::getfromdb(conn, "melhor_historico_geracao", id_usina = "BAUFI3")
+        dbinterface::getfromdb(conn, "melhor_historico_geracao", id_usina = "BAUFI3")
     )
 
     expect_identical(
         dataset$potencia_disponivel_observada,
-        dbrenovaveis::getfromdb(conn, "potencia_disponivel_observada", id_usina = "BAUFI3")
+        dbinterface::getfromdb(conn, "potencia_disponivel_observada", id_usina = "BAUFI3")
     )
 })
 

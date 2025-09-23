@@ -11,13 +11,13 @@ conectamock_pfv(uri)
 como um caminho completo, em string}
 }
 \value{
-objeto \code{mock}; Veja \code{\link[dbrenovaveis:conectamock]{dbrenovaveis::conectamock}}
+objeto \code{mock}; Veja \code{\link[dbinterface:conectamock]{dbinterface::conectamock}}
 }
 \description{
-Gera uma conexao com banco no padrao \code{dbrenovaveis} para uso das funcionalidades de leitura
+Gera uma conexao com banco no padrao \code{dbinterface} para uso das funcionalidades de leitura
 }
 \details{
-Usualmente o \code{dbrenovaveis} espera encontrar um arquivo \code{"schema.json"} a partir do qual montar o
+Usualmente o \code{dbinterface} espera encontrar um arquivo \code{"schema.json"} a partir do qual montar o
 banco de dados. No caso do modelo PFV, e necessario fazer interface com os dados sem este
 arquivo, se baseando em schemas internamente definidos pelo pacote.
 
