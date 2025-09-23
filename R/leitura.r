@@ -1,26 +1,3 @@
-#' Getter De Dataset Completo
-#' 
-#' Acessa todas as tabelas em uma conexao aplicando subsets igualmente
-#' 
-#' @param conn um objeto de conexao com banco como gerado por [`conectamock_pfv`]
-#' @param ... definicoes de subset. Veja [`pfvio_getters`]
-#' 
-#' @return lista de `data.table`s contendo todas as tabelas do banco nos subsets definidos por `...`
-#' 
-#' @export
-
-get_dataset <- function(conn, ...) {
-    list(
-        usinas = get_usinas(conn, ...),
-        potencia_disponivel_observada = get_potencia_disponivel_observada(conn, ...),
-        geracao_observada = get_geracao_observada(conn, ...),
-        corte_observado = get_corte_observado(conn, ...),
-        irradiancia_prevista = get_irradiancia_prevista(conn, ...),
-        melhor_historico_geracao = get_melhor_historico_geracao(conn, ...),
-        melhor_historico_geracao_sem_cortes = get_melhor_historico_geracao_sem_cortes(conn, ...)
-    )
-}
-
 #' Getters De Dados Individuais
 #' 
 #' Wrappers para acesso as tabelas do PFV em uma determinada conexao

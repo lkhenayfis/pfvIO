@@ -3,7 +3,6 @@
 export(conectamock_pfv)
 export(get_config)
 export(get_corte_observado)
-export(get_dataset)
 export(get_geracao_observada)
 export(get_irradiancia_prevista)
 export(get_melhor_historico_geracao)
