@@ -1,3 +1,12 @@
+# pfvIO 0.2.1
+
+## Misc
+
+* Muda dependencia `dbrenovaveis`, pacote nao mais em desenvolvimento, para seu sucessor
+  `dbinterface`
+* Depreca funcao `get_dataset()`; cada aplicacao vai ler dados diferentes de formas diferentes, de
+  modo que deverao criar suas proprias `get_dataset()`s
+
 # pfvIO 0.2
 
 ## New features
