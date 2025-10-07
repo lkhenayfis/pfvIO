@@ -1,3 +1,10 @@
+# pfvIO 0.2.2
+
+## Misc
+
+* Eleva versao minima de `dbinterface` para 0.8.2, que resolve bug na leitura de parquets gerados
+  por fora do R
+
 # pfvIO 0.2.1
 
 ## Misc
