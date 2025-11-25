@@ -116,6 +116,26 @@ get_geracao_observada <- function(conn, ...) {
 #' 
 #' @export
 
+get_irradiancia_observada <- function(conn, ...) {
+    lg <- get_pkg_logger()
+    lg$debug("Lendo dados de irradiancia observada...")
+
+    dt <- dbinterface::getfromdb(conn, "irradiancia_observada", ...)
+    valida_dado_singular_completo(dt,
+        guess_col_names("irradiancia_observada"),
+        guess_col_types("irradiancia_observada"),
+        guess_col_limits("irradiancia_observada")
+    )
+
+    lg$debug("Dados de irradiancia observada lidos com sucesso")
+
+    return(dt)
+}
+
+#' @rdname pfvio_getters
+#' 
+#' @export
+
 get_corte_observado <- function(conn, ...) {
     lg <- get_pkg_logger()
     lg$debug("Lendo dados de corte observado...")

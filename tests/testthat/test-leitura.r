@@ -49,6 +49,22 @@ test_that("get_geracao_observada", {
     )
 })
 
+test_that("get_irradiancia_observada", {
+    conn_local <- conectamock_pfv(system.file("extdata/", package = "pfvIO"))
+    dt <- get_irradiancia_observada(conn_local, id_usina = "BAUFI3")
+    expect_identical(
+        dt,
+        dbinterface::getfromdb(conn_local, "irradiancia_observada", id_usina = "BAUFI3")
+    )
+
+    conn_s3 <- conectamock_pfv("s3://ons-pem-historico/solar/pfvIO-teste")
+    dt <- get_irradiancia_observada(conn_s3, id_usina = "BAUFI3")
+    expect_identical(
+        dt,
+        dbinterface::getfromdb(conn_s3, "irradiancia_observada", id_usina = "BAUFI3")
+    )
+})
+
 test_that("get_irradiancia_prevista", {
     conn_local <- conectamock_pfv(system.file("extdata/", package = "pfvIO"))
     dt <- get_irradiancia_prevista(conn_local, id_usina = "BAUFI3")

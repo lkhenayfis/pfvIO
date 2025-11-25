@@ -57,6 +57,7 @@ supported_tables <- function() {
         "usinas",
         "potencia_disponivel_observada",
         "geracao_observada",
+        "irradiancia_observada",
         "corte_observado",
         "irradiancia_prevista",
         "melhor_historico_geracao",

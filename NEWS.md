@@ -1,3 +1,9 @@
+# irrad-obs
+
+## New features
+
+* Add suporte a leitura de irradiancia_observada
+
 # pfvIO 0.2.2
 
 ## Misc
