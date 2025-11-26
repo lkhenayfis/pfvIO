@@ -19,7 +19,7 @@ test_that("valida_filtra_tabelas", {
 
 test_that("valida_nomes_colunas", {
 
-    dd <- fread(system.file("extdata/usinas.csv", package = "pfvIO"))
+    dd <- fread(system.file("extdata/input/usinas.csv", package = "pfvIO"))
     nomes <- c("id_usina", "latitude", "longitude", "capacidade_instalada_MW", "data_inicio_operacao_comercial")
     expect_no_error(valida_nomes_colunas(dd, nomes))
 
@@ -32,7 +32,7 @@ test_that("valida_nomes_colunas", {
 
 test_that("valida_tipos_colunas", {
 
-    dd <- fread(system.file("extdata/usinas.csv", package = "pfvIO"))
+    dd <- fread(system.file("extdata/input/usinas.csv", package = "pfvIO"))
     tipos <- structure(
         c("character", "numeric", "numeric", "numeric", "POSIXct"),
         names = c("id_usina", "latitude", "longitude", "capacidade_instalada_MW",
@@ -53,7 +53,7 @@ test_that("valida_tipos_colunas", {
 
 test_that("valida_limites_colunas", {
 
-    dd <- fread(system.file("extdata/usinas.csv", package = "pfvIO"))
+    dd <- fread(system.file("extdata/input/usinas.csv", package = "pfvIO"))
     limites <- structure(
         list(latitude = c(-90, 90), longitude = c(-180, 180), capacidade_instalada_MW = c(0, Inf)),
         names = c("latitude", "longitude", "capacidade_instalada_MW")
