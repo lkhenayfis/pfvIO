@@ -26,7 +26,7 @@
 #' @examples 
 #' 
 #' # conexao com o banco
-#' dir  <- system.file("extdata/", package = "pfvIO")
+#' dir  <- system.file("extdata/input", package = "pfvIO")
 #' conn <- conectamock_pfv(dir)
 #' 
 #' # buscando geracao observada de uma usina especifica e todas as fontes
@@ -208,4 +208,23 @@ get_config <- function(conn, ...) {
     rf  <- dbinterface:::switch_reader_func("json", inherits(uri, "uri_s3"))
     config <- rf(file.path(uri, attr(conn, "config")))
     return(config)
+}
+
+#' Getter Do Artefato De Modelo
+#' 
+#' Wrapper para acesso a artefatos de modelos gerados
+#' 
+#' @param filename nome do arquivo do artefato a ser lido SEM EXTENSAO; por padrao todos os
+#'     artefatos sao salvos como objetos rds
+#' @param path caminho onde o artefato esta salvo
+#' 
+#' @return objeto lido do arquivo rds
+
+get_model_artifact <- function(filename, path) {
+    filename <- paste0(filename, ".rds")
+    path <- classifica_uri(path)
+    rf  <- dbinterface:::switch_reader_func("rds", inherits(path, "uri_s3"))
+    artifact <- rf(file.path(path, filename))
+
+    return(artifact)
 }
