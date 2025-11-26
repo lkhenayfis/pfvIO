@@ -124,3 +124,16 @@ test_that("get_config", {
     config_s3 <- get_config(conn_s3)
     expect_equal(config_s3, list(nome = 1))
 })
+
+test_that("get|write_model_artifact", {
+    path_local <- tempdir()
+
+    write_model_artifact(mtcars, "teste", path_local)
+    prova <- get_model_artifact("teste", path_local)
+    expect_equal(prova, mtcars)
+
+    path_s3 <- "s3://ons-pem-historico/solar/"
+    write_model_artifact(mtcars, "teste", path_s3)
+    prova <- get_model_artifact("teste", path_s3)
+    expect_equal(prova, mtcars)
+})
