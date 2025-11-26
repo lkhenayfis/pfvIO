@@ -10,8 +10,8 @@ test_that("uri_methods", {
 
     arqs <- lista_arquivos(uri)
     expect <- c("corte_observado.csv", "geracao_observada.csv", "irradiancia_prevista.csv",
-        "melhor_historico_geracao_sem_cortes.csv", "melhor_historico_geracao.csv",
-        "potencia_disponivel_observada.csv", "usinas.csv", "config.jsonc")
+        "irradiancia_observada.csv", "melhor_historico_geracao_sem_cortes.csv",
+        "melhor_historico_geracao.csv", "potencia_disponivel_observada.csv", "usinas.csv", "config.jsonc")
     expect_true(all(arqs %in% expect))
 
     # s3 ----------------------------------------
