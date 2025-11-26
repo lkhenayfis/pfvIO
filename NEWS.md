@@ -1,3 +1,11 @@
+# artifact-io
+
+## New features
+
+* Add funcao `get_model_artifact` para leitura de artefatos salvos previamente
+* Add funcoes de escrita `write_model_artifact` e `write_dataset` para salvar tanto artefatos quanto
+  dados gerados
+
 # pfvIO 0.2.2
 
 ## Misc
