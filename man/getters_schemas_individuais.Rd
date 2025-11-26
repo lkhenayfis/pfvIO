@@ -5,6 +5,7 @@
 \alias{get_schema_usinas}
 \alias{get_schema_potencia_disponivel_observada}
 \alias{get_schema_geracao_observada}
+\alias{get_schema_irradiancia_observada}
 \alias{get_schema_corte_observado}
 \alias{get_schema_irradiancia_prevista}
 \alias{get_schema_melhor_historico_geracao}
@@ -16,6 +17,8 @@ get_schema_usinas()
 get_schema_potencia_disponivel_observada()
 
 get_schema_geracao_observada()
+
+get_schema_irradiancia_observada()
 
 get_schema_corte_observado()
 

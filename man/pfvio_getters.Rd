@@ -5,6 +5,7 @@
 \alias{get_usinas}
 \alias{get_potencia_disponivel_observada}
 \alias{get_geracao_observada}
+\alias{get_irradiancia_observada}
 \alias{get_corte_observado}
 \alias{get_irradiancia_prevista}
 \alias{get_melhor_historico_geracao}
@@ -16,6 +17,8 @@ get_usinas(conn, ...)
 get_potencia_disponivel_observada(conn, ...)
 
 get_geracao_observada(conn, ...)
+
+get_irradiancia_observada(conn, ...)
 
 get_corte_observado(conn, ...)
 
