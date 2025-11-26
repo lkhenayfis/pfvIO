@@ -1,6 +1,6 @@
 test_that("conectamock_pfv", {
 
-    local <- system.file("extdata/", package = "pfvIO")
+    local <- system.file("extdata/input", package = "pfvIO")
     conn_local <- conectamock_pfv(local)
     expect_true(inherits(conn_local, "mock"))
     expect_equal(attr(conn_local, "uri"), structure(local, class = "uri_local"))

@@ -2,7 +2,7 @@ test_that("uri_methods", {
 
     # local -------------------------------------
 
-    local <- system.file("extdata", package = "pfvIO")
+    local <- system.file("extdata/input", package = "pfvIO")
     uri <- classifica_uri(local)
 
     expect_equal(unclass(uri), local)

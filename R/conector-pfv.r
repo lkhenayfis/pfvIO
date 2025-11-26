@@ -15,7 +15,7 @@
 #' 
 #' @examples 
 #' 
-#' uri <- system.file("extdata/", package = "pfvIO")
+#' uri <- system.file("extdata/input", package = "pfvIO")
 #' conn <- conectamock_pfv(uri)
 #' 
 #' \dontrun{

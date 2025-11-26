@@ -56,7 +56,7 @@ inicial) ou "tudo ate" (caso contrario).
 \examples{
 
 # conexao com o banco
-dir  <- system.file("extdata/", package = "pfvIO")
+dir  <- system.file("extdata/input", package = "pfvIO")
 conn <- conectamock_pfv(dir)
 
 # buscando geracao observada de uma usina especifica e todas as fontes

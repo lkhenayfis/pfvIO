@@ -2,7 +2,7 @@
 # de forma dedicada e o backend `dbinterface` tambem e exaustivamente testado por si so
 
 test_that("get_usinas", {
-    conn_local <- conectamock_pfv(system.file("extdata/", package = "pfvIO"))
+    conn_local <- conectamock_pfv(system.file("extdata/input", package = "pfvIO"))
     dt <- get_usinas(conn_local, id_usina = "BAUFI3")
     expect_identical(
         dt,
@@ -18,7 +18,7 @@ test_that("get_usinas", {
 })
 
 test_that("get_corte_observado", {
-    conn_local <- conectamock_pfv(system.file("extdata/", package = "pfvIO"))
+    conn_local <- conectamock_pfv(system.file("extdata/input", package = "pfvIO"))
     dt <- get_corte_observado(conn_local, id_usina = "BAUFI3")
     expect_identical(
         dt,
@@ -34,7 +34,7 @@ test_that("get_corte_observado", {
 })
 
 test_that("get_geracao_observada", {
-    conn_local <- conectamock_pfv(system.file("extdata/", package = "pfvIO"))
+    conn_local <- conectamock_pfv(system.file("extdata/input", package = "pfvIO"))
     dt <- get_geracao_observada(conn_local, id_usina = "BAUFI3")
     expect_identical(
         dt,
@@ -50,7 +50,7 @@ test_that("get_geracao_observada", {
 })
 
 test_that("get_irradiancia_prevista", {
-    conn_local <- conectamock_pfv(system.file("extdata/", package = "pfvIO"))
+    conn_local <- conectamock_pfv(system.file("extdata/input", package = "pfvIO"))
     dt <- get_irradiancia_prevista(conn_local, id_usina = "BAUFI3")
     expect_identical(
         dt,
@@ -66,7 +66,7 @@ test_that("get_irradiancia_prevista", {
 })
 
 test_that("get_melhor_historico_geracao_sem_cortes", {
-    conn_local <- conectamock_pfv(system.file("extdata/", package = "pfvIO"))
+    conn_local <- conectamock_pfv(system.file("extdata/input", package = "pfvIO"))
     dt <- get_melhor_historico_geracao_sem_cortes(conn_local, id_usina = "BAUFI3")
     expect_identical(
         dt,
@@ -82,7 +82,7 @@ test_that("get_melhor_historico_geracao_sem_cortes", {
 })
 
 test_that("get_melhor_historico_geracao", {
-    conn_local <- conectamock_pfv(system.file("extdata/", package = "pfvIO"))
+    conn_local <- conectamock_pfv(system.file("extdata/input", package = "pfvIO"))
     dt <- get_melhor_historico_geracao(conn_local, id_usina = "BAUFI3")
     expect_identical(
         dt,
@@ -98,7 +98,7 @@ test_that("get_melhor_historico_geracao", {
 })
 
 test_that("get_potencia_disponivel_observada", {
-    conn_local <- conectamock_pfv(system.file("extdata/", package = "pfvIO"))
+    conn_local <- conectamock_pfv(system.file("extdata/input", package = "pfvIO"))
     dt <- get_potencia_disponivel_observada(conn_local, id_usina = "BAUFI3")
     expect_identical(
         dt,
@@ -114,7 +114,7 @@ test_that("get_potencia_disponivel_observada", {
 })
 
 test_that("get_config", {
-    local <- system.file("extdata/", package = "pfvIO")
+    local <- system.file("extdata/input", package = "pfvIO")
     conn_local <- conectamock_pfv(local)
     config_local <- get_config(conn_local)
     expect_equal(config_local, list(nome = 1))
