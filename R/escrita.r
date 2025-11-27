@@ -8,6 +8,8 @@
 #' @param path caminho onde o artefato esta salvo
 #' 
 #' @return nao ha retorno; apenas salva `object` como `path/filename.rds`
+#' 
+#' @export
 
 write_model_artifact <- function(object, filename, path) {
     filename <- paste0(filename, ".rds")
@@ -27,6 +29,8 @@ write_model_artifact <- function(object, filename, path) {
 #' @param path caminho onde o artefato esta salvo
 #' 
 #' @return nao ha retorno; apenas salva `object` como `path/filename.rds`
+#' 
+#' @export
 
 write_dataset <- function(object, filename, path) {
     path <- file.path(path, filename)
