@@ -1,3 +1,10 @@
+# pfvIO 0.3.1
+
+## Misc
+
+* Passa a exportar funcoes `get_model_artifact`, `write_model_artifact` e `write_dataset`
+* Inclui paginas de documentacao faltantes destas funcoes
+
 # pfvIO 0.3
 
 ## New features
