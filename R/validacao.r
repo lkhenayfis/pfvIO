@@ -60,6 +60,8 @@ supported_tables <- function() {
         "irradiancia_observada",
         "corte_observado",
         "irradiancia_prevista",
+        "temperatura_prevista",
+        "umidade_prevista",
         "melhor_historico_geracao",
         "melhor_historico_geracao_sem_cortes"
     )

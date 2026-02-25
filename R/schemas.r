@@ -189,6 +189,44 @@ get_schema_irradiancia_prevista <- function() {
 
 #' @rdname getters_schemas_individuais
 
+get_schema_temperatura_prevista <- function() {
+    list(
+        name = "temperatura_prevista",
+        description = "",
+        uri = "",
+        fileType = "",
+        columns = list(
+            list(name = "id_modelo_nwp", type = "character"),
+            list(name = "latitude", type = "numeric", limits = c(-90, 90)),
+            list(name = "longitude", type = "numeric", limits = c(-180, 180)),
+            list(name = "data_hora_rodada", type = "POSIXct"),
+            list(name = "data_hora_previsao", type = "POSIXct"),
+            list(name = "valor", type = "numeric", limits = c(0, Inf))
+        )
+    )
+}
+
+#' @rdname getters_schemas_individuais
+
+get_schema_umidade_prevista <- function() {
+    list(
+        name = "umidade_prevista",
+        description = "",
+        uri = "",
+        fileType = "",
+        columns = list(
+            list(name = "id_modelo_nwp", type = "character"),
+            list(name = "latitude", type = "numeric", limits = c(-90, 90)),
+            list(name = "longitude", type = "numeric", limits = c(-180, 180)),
+            list(name = "data_hora_rodada", type = "POSIXct"),
+            list(name = "data_hora_previsao", type = "POSIXct"),
+            list(name = "valor", type = "numeric", limits = c(0, Inf))
+        )
+    )
+}
+
+#' @rdname getters_schemas_individuais
+
 get_schema_melhor_historico_geracao <- function() {
     list(
         name = "melhor_historico_geracao",
