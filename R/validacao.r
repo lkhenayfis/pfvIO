@@ -49,7 +49,9 @@ valida_filtra_tabelas <- function(tabelas) {
 #' * `irradiancia_prevista`
 #' * `melhor_historico_geracao`
 #' * `melhor_historico_geracao_sem_cortes`
-#' 
+#' * `vento_observado`
+#' * `melhor_historico_vento`
+#'
 #' @return vetor de nomes das tabelas suportadas no pacote
 
 supported_tables <- function() {
@@ -61,7 +63,9 @@ supported_tables <- function() {
         "corte_observado",
         "irradiancia_prevista",
         "melhor_historico_geracao",
-        "melhor_historico_geracao_sem_cortes"
+        "melhor_historico_geracao_sem_cortes",
+        "vento_observado",
+        "melhor_historico_vento"
     )
 }
 

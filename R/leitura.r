@@ -113,7 +113,47 @@ get_geracao_observada <- function(conn, ...) {
 }
 
 #' @rdname pfvio_getters
-#' 
+#'
+#' @export
+
+get_vento_observado <- function(conn, ...) {
+    lg <- get_pkg_logger()
+    lg$debug("Lendo dados de vento observado...")
+
+    dt <- dbinterface::getfromdb(conn, "vento_observado", ...)
+    valida_dado_singular_completo(dt,
+        guess_col_names("vento_observado"),
+        guess_col_types("vento_observado"),
+        guess_col_limits("vento_observado")
+    )
+
+    lg$debug("Dados de vento observado lidos com sucesso")
+
+    return(dt)
+}
+
+#' @rdname pfvio_getters
+#'
+#' @export
+
+get_melhor_historico_vento <- function(conn, ...) {
+    lg <- get_pkg_logger()
+    lg$debug("Lendo dados de melhor historico de vento...")
+
+    dt <- dbinterface::getfromdb(conn, "melhor_historico_vento", ...)
+    valida_dado_singular_completo(dt,
+        guess_col_names("melhor_historico_vento"),
+        guess_col_types("melhor_historico_vento"),
+        guess_col_limits("melhor_historico_vento")
+    )
+
+    lg$debug("Dados de melhor historico de vento lidos com sucesso")
+
+    return(dt)
+}
+
+#' @rdname pfvio_getters
+#'
 #' @export
 
 get_irradiancia_observada <- function(conn, ...) {
