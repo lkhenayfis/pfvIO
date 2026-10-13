@@ -222,3 +222,39 @@ get_schema_melhor_historico_geracao_sem_cortes <- function() {
         )
     )
 }
+
+#' @rdname getters_schemas_individuais
+
+get_schema_vento_observado <- function() {
+    list(
+        name = "vento_observado",
+        description = "",
+        uri = "",
+        fileType = "",
+        columns = list(
+            list(name = "id_fonte_observacao", type = "character"),
+            list(name = "id_usina", type = "character"),
+            list(name = "data_hora_observacao", type = "POSIXct"),
+            list(name = "valor", type = "numeric", limits = c(0, Inf)),
+            list(name = "status", type = "integer")
+        )
+    )
+}
+
+#' @rdname getters_schemas_individuais
+
+get_schema_melhor_historico_vento <- function() {
+    list(
+        name = "melhor_historico_vento",
+        description = "",
+        uri = "",
+        fileType = "",
+        columns = list(
+            list(name = "id_fonte_observacao", type = "character"),
+            list(name = "id_usina", type = "character"),
+            list(name = "data_hora_observacao", type = "POSIXct"),
+            list(name = "valor", type = "numeric", limits = c(0, Inf)),
+            list(name = "status", type = "integer")
+        )
+    )
+}
